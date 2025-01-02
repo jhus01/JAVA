@@ -1,14 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
-    <artifactId>Persona</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
-        <exec.mainClass>com.mycompany.persona.Persona</exec.mainClass>
-    </properties>
-</project>
+
+package com.mycompany.persona;
+import java.util.Scanner; // Importa la clase Scanner para la entrada desde el teclado
+
+public class Persona {
+    //declarar variable
+    private String nombre;
+    private int edad;
+
+    // Métodos "set" para asignar nombre tipo string
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    
+    // Métodos "set" para asignar edad tipo int
+    public void setEdad(int edad){
+        this.edad=edad;
+    }
+    
+    
+
+    public static void main(String[] args) {
+        // Crear una instancia de Scanner para leer datos de la consola
+         Scanner scanner = new Scanner(System.in);
+         
+         // Crear un objeto de la clase Persona
+         Persona persona=new Persona();
+
+
+        // Pedir al usuario que introduzca el nombre
+        System.out.println("INGRESE SU NOMBRE Y APELLIDO: ");
+        String nombre=scanner.nextLine();// Leer la entrada del usuario
+        persona.setNombre(nombre); //setnombre
+        
+
+        // Pedir al usuario que introduzca la edad
+        System.out.println("INGRESE SU EDAD: ");
+        int edad =scanner.nextInt();// Leer la edad como un número entero
+        persona.setEdad(edad);
+        
+
+        // Cerrar  o terminar el scanner
+        scanner.close();
+        
+         // Mostrar el saludo y la información de la persona
+         persona.saludo();
+    }
+
+    // Método para saludar y mostrar nombre y edad consola
+    public void saludo(){
+        System.out.println("-------------------------");
+        System.out.println("SALUDO ");
+        System.out.println("HOLA! SOY: "+nombre+ "Y TENGO: "+edad+"  ANIOS");
+    }
+    
+}
